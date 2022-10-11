@@ -1,0 +1,5 @@
+- name: initialize master node
+  hosts: masternode
+  tasks:
+    - name: shell
+      command: kubeadm init --apiserver-advertise-address="192.168.2.101"

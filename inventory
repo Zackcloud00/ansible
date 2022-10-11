@@ -1,0 +1,21 @@
+masternode ansible_host=192.168.2.101
+wnode1 ansible_host=192.168.2.102
+wnode2 ansible_host=192.168.2.103
+
+[master-node]
+masternode
+
+[worker-node]
+wnode1
+wnode2
+
+[master-node:vars]
+ansible_user=root
+ansible_connection=ssh
+ansible_ssh_private_key_file=/home/zack/.ssh/ansible_key
+
+
+[worker-node:vars]
+ansible_user=root
+ansible_connection=ssh
+ansible_ssh_private_key_file=/home/zack/.ssh/ansible_key

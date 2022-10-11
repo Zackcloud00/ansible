@@ -1,0 +1,14 @@
+- name: Disable swap
+  hosts: all
+  tasks: 
+    - name: Remove swapfile
+      mount: 
+        name: "{{ item }}"
+        fstype: swap
+        state: absent
+      with_items:
+        - swap
+        - none
+    - name: Disable swap
+      command: swapoff -a
+      when: ansible_swaptotal_mb > 0
