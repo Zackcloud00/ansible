@@ -18,3 +18,7 @@
         - vim
         - git
         - net-tools
+    - name: Put SELinux in permissive mode, logging actions that would be blocked.
+      ansible.posix.selinux:
+        policy: targeted
+        state: permissive
