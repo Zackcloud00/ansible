@@ -1,15 +1,15 @@
 - hosts: all
   tasks:
     - name: Enable EPEL Repository on CentOS 8
-      dnf:
+      yum:
         name: epel-release
         state: latest
-    - name: Update 
-      dnf:
+    - name: Update
+      yum:
         name: '*'
         state: latest
     - name: Install Package
-      dnf:
+      yum:
         name: "{{item}}"
         state: latest
       loop:
@@ -18,7 +18,3 @@
         - vim
         - git
         - net-tools
-    - name: Put SELinux in permissive mode, logging actions that would be blocked.
-      ansible.posix.selinux:
-        policy: targeted
-        state: permissive

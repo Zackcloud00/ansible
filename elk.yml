@@ -1,0 +1,13 @@
+- hosts: all
+  tasks:
+    - name: Install Package
+      yum:
+        name: "{{item}}"
+        state: latest
+      loop:
+        - java-1.8.0-openjdk
+        - java-1.8.0-openjdk-devel
+        - elasticsearch
+        - kibana
+        - logstash
+        - filebeat
